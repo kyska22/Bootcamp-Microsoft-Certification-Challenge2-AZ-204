@@ -24,7 +24,7 @@ Antes de iniciar, precisamos ter as seguintes ferramentas instaladas:
    func init ValidacaoCPF --dotnet
    cd ValidacaoCPF
    func new --template "Function" --name ValidarCPF
-   ```
+  
 Isso criará um novo projeto de Azure Functions com a função ValidarCPF.
    
 2. Instalação de Dependências:
@@ -32,8 +32,7 @@ Isso criará um novo projeto de Azure Functions com a função ValidarCPF.
 Instale as dependências necessárias para validar o CPF. Para isso, adicione um pacote de validação usando uma expressão regular para o CPF. Execute o comando no terminal para adicionar o pacote de validação:
   ``` bash
   dotnet add package System.Text.RegularExpressions
-  ´´´
-
+ 
 
 3. Código da Função
 
@@ -122,12 +121,12 @@ public static class ValidarCPF
         return digitos[9] == resto1 && digitos[10] == resto2;
     }
 }
-```
+
 
 4. Testando a Função Localmente
 ```
 func start
-```
+
 Acesse http://localhost:7071/api/ValidarCPF?cpf=12345678909 para testar a função localmente. Ela retornará se o CPF fornecido é válido ou não.
 
 5. Deployment para o Azure
@@ -135,15 +134,15 @@ Acesse http://localhost:7071/api/ValidarCPF?cpf=12345678909 para testar a funç�
  - Autenticação no Azure:
 ```
 az login
-```
+
  - Criar uma Função no Azure:
 ```
 az functionapp create --resource-group <nome-do-grupo-de-recursos> --consumption-plan-location <região> --runtime dotnet --functions-version 4 --name <nome-do-app-de-função> --storage-account <nome-da-conta-de-armazenamento>
-```
+
  - Publicar a Função:
 ```
 func azure functionapp publish <nome-do-app-de-função>
-```
+
 6. Monitoramento e Logging
 
  - Ativar Application Insights:
